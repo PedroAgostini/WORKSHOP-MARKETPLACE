@@ -1,0 +1,17 @@
+# Credenciais — use api/includes/config.example.php como modelo
+api/includes/config.php
+
+# Dados gerados em produção (leads, rate limit)
+api/storage/*
+!api/storage/.htaccess
+
+# Sistema / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+node_modules/
+
+# Ferramentas
+.impeccable/

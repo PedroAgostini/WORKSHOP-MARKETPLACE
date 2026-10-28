@@ -1,0 +1,8 @@
+# workshop.furacaodasvendas.com.br
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /clean-cache.php
+
+Sitemap: https://workshop.furacaodasvendas.com.br/sitemap.xml

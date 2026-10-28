@@ -1,0 +1,65 @@
+:root {
+  --bg: #1D1D1B;
+  --surface: #2A2A27;
+  --border: #41413D;
+  --text: #F4F5F7;
+  --muted: #A9AFBC;
+  --accent: #FF4D1A;
+  --on-accent: #1D1D1B;
+  --error: #FF6B6B;
+  --ok: #3DDC84;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
+
+body {
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg, video { display: block; max-width: 100%; height: auto; }
+
+section { padding: 64px 16px; max-width: 1080px; margin-inline: auto; }
+
+h1 { font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1.1; }
+h2 { font-size: clamp(1.5rem, 4vw, 2.25rem); line-height: 1.2; margin-bottom: 24px; }
+
+/* Formulário */
+.form { display: grid; gap: 8px; max-width: 440px; }
+.form label { font-weight: 600; margin-top: 8px; }
+.form input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+.form input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.form button {
+  margin-top: 16px;
+  padding: 16px 24px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.form button:disabled { opacity: .6; cursor: wait; }
+.form-status { min-height: 1.6em; color: var(--muted); }
+.form-status[data-state="error"] { color: var(--error); }
+.form-status[data-state="ok"] { color: var(--ok); }
+
+/* Honeypot fora da tela (display:none é ignorado por alguns bots) */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* Cabeçalho */
+.site-header { padding: 24px 16px 0; max-width: 1080px; margin-inline: auto; }
+.logo { width: clamp(140px, 30vw, 220px); }

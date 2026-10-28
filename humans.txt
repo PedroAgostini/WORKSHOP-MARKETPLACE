@@ -1,0 +1,16 @@
+/* TEAM */
+    Projeto: Workshop Furacão das Vendas
+    Desenvolvimento: TS Brasil
+    Localização: Brasil
+
+/* THANKS */
+    Furacão das Vendas: https://furacaodasvendas.com.br
+
+/* SITE */
+    Last update: 2026/10/28
+    Language: Português (pt-BR)
+    Doctype: HTML5
+    Standards: HTML5, CSS3, JavaScript (ES2020), PHP 8
+    Components: Antispam próprio (honeypot, token assinado, rate limit)
+    Software: Visual Studio Code
+    Server: Apache / LiteSpeed

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Workshop Furacão das Vendas | LP 2</title>
+  <meta name="description" content="TODO: descrição de 140–160 caracteres da LP 2.">
+  <link rel="canonical" href="https://workshop.furacaodasvendas.com.br/lp2/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+
+  <!-- Open Graph / redes sociais (imagem 1200x630) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Workshop Furacão das Vendas">
+  <meta property="og:title" content="Workshop Furacão das Vendas | LP 2">
+  <meta property="og:description" content="TODO: descrição da LP 2.">
+  <meta property="og:url" content="https://workshop.furacaodasvendas.com.br/lp2/">
+  <meta property="og:image" content="https://workshop.furacaodasvendas.com.br/lp2/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon / PWA -->
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#1D1D1B">
+
+  <link rel="author" href="/humans.txt">
+
+  <!-- Versione CSS/JS (?v=AAAAMMDD) a cada deploy para furar o cache -->
+  <link rel="stylesheet" href="/lp2/css/style.css?v=20261028">
+</head>
+<body>
+
+  <header class="site-header">
+    <img class="logo" src="/lp2/img/logo-branco.svg" alt="Workshop de Marketplace" width="781" height="303">
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Workshop Furacão das Vendas</h1>
+      <p>TODO: conteúdo da LP 2.</p>
+    </section>
+
+    <section class="inscricao" id="inscricao">
+      <h2>Garanta sua vaga</h2>
+
+      <form class="form" action="/api/lead.php" method="post" data-antispam novalidate>
+        <input type="hidden" name="_lp" value="lp2">
+        <input type="hidden" name="_token" value="">
+
+        <!-- Honeypot: invisível para pessoas, bots preenchem -->
+        <div class="hp" aria-hidden="true">
+          <label for="lp2-website">Não preencha</label>
+          <input type="text" id="lp2-website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <label for="lp2-nome">Nome</label>
+        <input type="text" id="lp2-nome" name="nome" autocomplete="name" required minlength="2" maxlength="80">
+
+        <label for="lp2-email">E-mail</label>
+        <input type="email" id="lp2-email" name="email" autocomplete="email" required>
+
+        <label for="lp2-telefone">WhatsApp</label>
+        <input type="tel" id="lp2-telefone" name="telefone" autocomplete="tel-national" inputmode="tel" placeholder="(11) 91234-5678" required>
+
+        <button type="submit">Quero minha vaga</button>
+        <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="/assets/js/antispam.js?v=20261028" defer></script>
+  <script src="/lp2/js/main.js?v=20261028" defer></script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+# ==============================================================
+#  workshop.furacaodasvendas.com.br
+#  Apache 2.4 / LiteSpeed
+# ==============================================================
+
+Options -Indexes -MultiViews +FollowSymLinks
+ServerSignature Off
+DirectoryIndex index.html index.php
+AddDefaultCharset UTF-8
+
+ErrorDocument 403 /404.html
+ErrorDocument 404 /404.html
+
+
+# --------------------------------------------------------------
+#  REESCRITAS
+# --------------------------------------------------------------
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Força HTTPS (também atrás de proxy/CDN)
+    RewriteCond %{HTTPS} !=on
+    RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+    RewriteRule ^ https://workshop.furacaodasvendas.com.br%{REQUEST_URI} [L,R=301]
+
+    # Remove www
+    RewriteCond %{HTTP_HOST} ^www\. [NC]
+    RewriteRule ^ https://workshop.furacaodasvendas.com.br%{REQUEST_URI} [L,R=301]
+
+    # Bloqueia arquivos/pastas ocultos (exceto .well-known)
+    RewriteRule (^|/)\.(?!well-known/) - [F,L]
+
+    # Corta varreduras comuns de bots (WordPress, etc.)
+    RewriteRule ^(wp-admin|wp-includes|wp-content|wp-login\.php|xmlrpc\.php|phpmyadmin|admin\.php) - [F,L,NC]
+
+    # /pasta/index.html -> /pasta/
+    RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
+    RewriteRule ^(.*/)?index\.html$ /$1 [L,R=301,NC]
+
+    # /pagina.html -> /pagina
+    RewriteCond %{THE_REQUEST} \s/+([^?\s]+)\.html[\s?] [NC]
+    RewriteRule ^ /%1 [L,R=301]
+
+    # /pagina -> serve pagina.html internamente
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.html -f
+    RewriteRule ^(.+?)/?$ $1.html [L]
+
+    # Raiz -> LP principal (302 enquanto não existir uma home própria)
+    RewriteRule ^$ /lp1/ [L,R=302]
+</IfModule>
+
+
+# --------------------------------------------------------------
+#  ARQUIVOS SENSÍVEIS
+# --------------------------------------------------------------
+<FilesMatch "(?i)\.(bak|old|orig|save|swp|tmp|sql|log|ini|env|sh|inc|md|lock|ya?ml|dist|psd|ai|fig|zip|rar|7z|gz)$">
+    Require all denied
+</FilesMatch>
+
+<FilesMatch "^(package(-lock)?\.json|composer\.(json|lock)|config\.php)$">
+    Require all denied
+</FilesMatch>
+
+<Files "clean-cache.php">
+    <IfModule mod_headers.c>
+        Header set X-Robots-Tag "noindex, nofollow"
+        Header set Cache-Control "no-store, max-age=0"
+    </IfModule>
+</Files>
+
+
+# --------------------------------------------------------------
+#  CABEÇALHOS DE SEGURANÇA
+# --------------------------------------------------------------
+<IfModule mod_headers.c>
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+    Header always set Cross-Origin-Opener-Policy "same-origin-allow-popups"
+    Header always unset X-Powered-By
+    Header unset X-Powered-By
+
+    # CSP — ative depois de listar todos os scripts de terceiros usados nas LPs.
+    # Teste antes com Content-Security-Policy-Report-Only.
+    # Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.facebook.com; frame-src https://www.youtube-nocookie.com https://player.vimeo.com https://challenges.cloudflare.com https://www.googletagmanager.com; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
+</IfModule>
+
+
+# --------------------------------------------------------------
+#  TIPOS MIME
+# --------------------------------------------------------------
+<IfModule mod_mime.c>
+    AddType application/manifest+json  webmanifest
+    AddType image/svg+xml              svg svgz
+    AddType image/webp                 webp
+    AddType image/avif                 avif
+    AddType image/x-icon               ico
+    AddType font/woff2                 woff2
+    AddType font/woff                  woff
+    AddType video/mp4                  mp4
+    AddType video/webm                 webm
+    AddCharset utf-8 .html .css .js .mjs .json .webmanifest .txt .xml .svg
+</IfModule>
+
+
+# --------------------------------------------------------------
+#  COMPRESSÃO
+# --------------------------------------------------------------
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css text/xml text/javascript application/javascript application/json application/xml application/manifest+json image/svg+xml image/x-icon font/ttf font/otf
+</IfModule>
+
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml text/javascript application/javascript application/json application/xml application/manifest+json image/svg+xml image/x-icon font/ttf font/otf
+</IfModule>
+
+
+# --------------------------------------------------------------
+#  CACHE
+#  HTML sempre revalida (alterações aparecem na hora).
+#  CSS/JS: 30 dias — versione com ?v=AAAAMMDD a cada deploy.
+#  Imagens, vídeos e fontes: 1 ano.
+# --------------------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault                            "access plus 1 month"
+
+    ExpiresByType text/html                   "access plus 0 seconds"
+    ExpiresByType application/json            "access plus 0 seconds"
+    ExpiresByType application/xml             "access plus 0 seconds"
+    ExpiresByType text/xml                    "access plus 0 seconds"
+    ExpiresByType text/plain                  "access plus 0 seconds"
+    ExpiresByType application/manifest+json   "access plus 1 week"
+
+    ExpiresByType text/css                    "access plus 30 days"
+    ExpiresByType text/javascript             "access plus 30 days"
+    ExpiresByType application/javascript      "access plus 30 days"
+
+    ExpiresByType image/x-icon                "access plus 1 year"
+    ExpiresByType image/svg+xml               "access plus 1 year"
+    ExpiresByType image/png                   "access plus 1 year"
+    ExpiresByType image/jpeg                  "access plus 1 year"
+    ExpiresByType image/gif                   "access plus 1 year"
+    ExpiresByType image/webp                  "access plus 1 year"
+    ExpiresByType image/avif                  "access plus 1 year"
+    ExpiresByType video/mp4                   "access plus 1 year"
+    ExpiresByType video/webm                  "access plus 1 year"
+    ExpiresByType font/woff2                  "access plus 1 year"
+    ExpiresByType font/woff                   "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(html|php|json|xml|txt)$">
+        Header set Cache-Control "no-cache, must-revalidate"
+    </FilesMatch>
+    <FilesMatch "\.(css|js|mjs)$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+    <FilesMatch "\.(ico|svg|png|jpe?g|gif|webp|avif|mp4|webm|woff2?)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+</IfModule>
