@@ -14,7 +14,7 @@ return [
     // LPs válidas (slug => página de obrigado).
     'lps' => [
         'lp1' => '/lp1/obrigado/',
-        'lp2' => '/lp2/obrigado/',
+        'lp2' => '/quero-comecar/obrigado/',
     ],
 
     'antispam' => [

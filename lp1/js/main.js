@@ -42,20 +42,18 @@ if (mcta) {
   new IntersectionObserver(([e]) => { onForm = e.isIntersecting; update(); }).observe(form);
 }
 
-// Vídeo: só carrega o YouTube no clique
-document.querySelectorAll('[data-yt]').forEach((btn) => {
-  const id = btn.dataset.yt.trim();
-  if (!id) {
-    btn.classList.add('is-empty');
-    return;
-  }
+// Vídeo: só baixa o arquivo no clique
+document.querySelectorAll('[data-video]').forEach((btn) => {
   btn.addEventListener('click', () => {
-    const iframe = document.createElement('iframe');
-    iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0`;
-    iframe.title = btn.getAttribute('aria-label');
-    iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
-    iframe.allowFullscreen = true;
-    btn.replaceWith(iframe);
+    const video = document.createElement('video');
+    video.src = btn.dataset.video;
+    video.poster = btn.querySelector('img')?.src || '';
+    video.controls = true;
+    video.playsInline = true;
+    video.preload = 'auto';
+    video.setAttribute('aria-label', btn.getAttribute('aria-label'));
+    btn.replaceWith(video);
+    video.play().catch(() => {});
   }, { once: true });
 });
 
@@ -85,37 +83,26 @@ if (sim) {
     requestAnimationFrame(step);
   };
 
-  const fill = (input) => {
-    const p = ((input.value - input.min) / (input.max - input.min)) * 100;
-    input.style.setProperty('--p', `${p}%`);
-  };
+  // Melhorias fixas: +15% de visitas, +15% de vendas sobre as visitas, +10% por compra
+  const FACTOR = 1.15 * 1.15 * 1.10;
+  const field = sim.querySelector('[name="fat"]');
+  const chips = sim.querySelectorAll('[data-fat]');
 
   const calc = () => {
-    const base = num('visitas') * (num('conversao') / 100) * num('ticket');
-    const t = num('t') / 100;
-    const c = num('c') / 100;
-    const k = num('k') / 100;
-
-    // Cada alavanca soma sobre o resultado da anterior: tráfego → conversão → ticket
-    const afterT = base * (1 + t);
-    const afterC = afterT * (1 + c);
-    const total = afterC * (1 + k);
-    const gains = { t: afterT - base, c: afterC - afterT, k: total - afterC };
-    const max = Math.max(gains.t, gains.c, gains.k, 1);
-
+    const base = num('fat');
+    const total = base * FACTOR;
     tween('atual', base);
     tween('novo', total);
     tween('ano', (total - base) * 12, true);
-    out('pct').textContent = `+${base ? Math.round((total / base - 1) * 100) : 0}%`;
-    ['t', 'c', 'k'].forEach((key) => {
-      tween(key, gains[key], true);
-      sim.querySelector(`[data-out="${key}"]`).textContent = `+${num(key)}%`;
-      sim.querySelector(`[data-bar="${key}"]`).style.width = `${(gains[key] / max) * 100}%`;
-    });
-    sim.querySelectorAll('input[type="range"]').forEach(fill);
+    out('pct').textContent = `+${Math.round((FACTOR - 1) * 100)}%`;
+    chips.forEach((c) => c.classList.toggle('is-on', Number(c.dataset.fat) === base));
   };
 
-  sim.addEventListener('input', calc);
+  chips.forEach((chip) => chip.addEventListener('click', () => {
+    field.value = chip.dataset.fat;
+    calc();
+  }));
+  field.addEventListener('input', calc);
   calc();
 }
 

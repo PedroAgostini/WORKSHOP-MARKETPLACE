@@ -34,6 +34,21 @@ ErrorDocument 404 /404.html
     # Corta varreduras comuns de bots (WordPress, etc.)
     RewriteRule ^(wp-admin|wp-includes|wp-content|wp-login\.php|xmlrpc\.php|phpmyadmin|admin\.php) - [F,L,NC]
 
+    # A lp1 é a página principal: /lp1/ e /lp1/index.html -> raiz (mantém UTMs)
+    RewriteCond %{THE_REQUEST} \s/+lp1/?(index\.html)?[\s?] [NC]
+    RewriteRule ^ / [L,R=301]
+
+    # A lp2 é publicada em /quero-comecar/: as páginas antigas redirecionam (mantém UTMs).
+    # Os arquivos (CSS, JS, imagens) continuam em /lp2/.
+    RewriteCond %{THE_REQUEST} \s/+lp2/?(index\.html)?[\s?] [NC]
+    RewriteRule ^ /quero-comecar/ [L,R=301]
+    RewriteCond %{THE_REQUEST} \s/+lp2/obrigado/?(index\.html)?[\s?] [NC]
+    RewriteRule ^ /quero-comecar/obrigado/ [L,R=301]
+
+    # /quero-comecar/ -> serve a pasta lp2 sem redirecionar
+    RewriteRule ^quero-comecar/?$ lp2/index.html [L,NC]
+    RewriteRule ^quero-comecar/obrigado/?$ lp2/obrigado/index.html [L,NC]
+
     # /pasta/index.html -> /pasta/
     RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
     RewriteRule ^(.*/)?index\.html$ /$1 [L,R=301,NC]
@@ -47,8 +62,9 @@ ErrorDocument 404 /404.html
     RewriteCond %{REQUEST_FILENAME}.html -f
     RewriteRule ^(.+?)/?$ $1.html [L]
 
-    # Raiz -> LP principal (302 enquanto não existir uma home própria)
-    RewriteRule ^$ /lp1/ [L,R=302]
+    # Raiz -> serve a lp1 sem redirecionar (o endereço fica workshop.furacaodasvendas.com.br/).
+    # Os arquivos continuam em /lp1/ (CSS, JS, imagens e /lp1/obrigado/).
+    RewriteRule ^$ lp1/index.html [L]
 </IfModule>
 
 

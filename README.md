@@ -28,12 +28,12 @@ https://workshop.furacaodasvendas.com.br — duas landing pages em HTML estátic
 │   ├── index.html
 │   ├── obrigado/index.html
 │   ├── css/  js/  img/    (logos + img/og.jpg 1200x630 para compartilhamento)
-└── lp2/                   mesma estrutura
+└── lp2/                   mesma estrutura; publicada em /quero-comecar/ (o .htaccess serve a pasta lp2 nesse endereço)
 ```
 
 Logos originais em `logos/` (LOGO-1 = branca, LOGO-2 = preta). O favicon é o monograma "WM" feito com os traços da própria logo, em branco sobre `#1D1D1B`.
 
-A raiz `/` redireciona (302) para `/lp1/`. Altere no `.htaccess` se houver uma home.
+A lp1 é a página principal: a raiz `/` serve `lp1/index.html` sem redirecionar, e `/lp1/` redireciona (301) para `/`. Os arquivos da lp1 (CSS, JS, imagens, `/lp1/obrigado/`) continuam em `/lp1/`. A versão alternativa azul fica em `/lp1/azul/`.
 
 ## Antes de publicar
 

@@ -1367,6 +1367,145 @@ strong, b { font-weight: 600; color: #fff; }
 }
 @media (min-width: 1024px) { .event__list b { white-space: nowrap; font-size: clamp(1.6rem, 2.2vw, 2.1rem); } }
 
+/* Simulador simplificado: uma pergunta, atalhos de valor e melhorias fixas */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.field .field__box--big input { padding-block: 16px; font: 900 italic clamp(1.8rem, 4vw, 2.2rem)/1 var(--display); font-variant-numeric: tabular-nums; }
+.field__box--big em { font: 700 italic 1.4rem/1 var(--display); color: var(--muted); }
+.sim__chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.sim__chips button {
+  padding: 9px 14px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  background: transparent;
+  font: 600 .9rem/1 var(--body);
+  color: var(--muted);
+  cursor: pointer;
+  transition: color .2s, border-color .2s, background .2s;
+}
+.sim__chips button:hover { color: var(--text); border-color: rgba(255, 236, 214, .32); }
+.sim__chips button.is-on { color: var(--accent-hi); border-color: rgba(255, 164, 61, .45); background: rgba(255, 145, 0, .1); }
+.sim__chips button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.sim__gains { display: grid; }
+.sim__gains li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--text);
+}
+.sim__gains li:last-child { border-bottom: 0; }
+.sim__gains b { font: 900 italic 1.5rem/1 var(--display); color: var(--accent-hi); font-variant-numeric: tabular-nums; }
+.sim__out { justify-content: center; gap: 28px; }
+.sim__out > .btn { margin-top: 4px; }
+.sim .total b { font-size: clamp(2.1rem, 3.8vw, 2.9rem); }
+.sim .total > span { font-size: .8rem; }
+.sim__year b { font-size: clamp(2rem, 4vw, 2.7rem); color: var(--accent-hi); }
+
+/* Vídeo de depoimento (arquivo próprio, carrega no clique) */
+.video video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line-2);
+  border-radius: 24px;
+  background: #000;
+}
+.video__btn--poster img { filter: none; }
+.video__btn--poster::after { background: radial-gradient(60% 70% at 50% 50%, rgba(0, 0, 0, .35), transparent 70%); }
+.video__btn--poster:hover img { filter: brightness(1.05); }
+.video__time {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, .7);
+  font-size: .8rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+.video__cap { margin-top: 14px; text-align: center; font: 300 1.3rem/1 var(--display); text-transform: uppercase; color: var(--muted); }
+.video__cap strong { font-weight: 900; font-style: italic; color: var(--text); }
+
+/* Lotes de ingresso */
+.lots {
+  width: 100%;
+  max-width: 1040px;
+  display: grid;
+  gap: 16px;
+  margin-top: 20px;
+  text-align: left;
+}
+.lot {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 18px;
+  padding: 26px;
+  border-radius: 24px;
+  overflow: hidden;
+}
+.lot--open {
+  border: 1px solid rgba(255, 164, 61, .45);
+  background:
+    radial-gradient(90% 80% at 100% 0%, rgba(255, 145, 0, .2), transparent 70%),
+    linear-gradient(160deg, rgba(255, 236, 214, .07), rgba(255, 236, 214, .01) 60%),
+    rgba(23, 19, 15, .7);
+  box-shadow: inset 0 1px 0 rgba(255, 236, 214, .1), 0 40px 80px -40px rgba(255, 107, 0, .45);
+}
+.lot--closed {
+  border: 1px dashed var(--line-2);
+  background: repeating-linear-gradient(135deg, rgba(255, 236, 214, .025) 0 12px, transparent 12px 24px), rgba(12, 10, 8, .6);
+  color: var(--muted);
+}
+.lot__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.lot__name { font: 800 italic clamp(1.6rem, 3vw, 2rem)/1 var(--display); text-transform: uppercase; letter-spacing: .01em; }
+.lot__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.lot--open .lot__tag { background: rgba(255, 145, 0, .14); border: 1px solid rgba(255, 164, 61, .4); color: var(--accent-hi); }
+.lot--open .lot__tag i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.lot--closed .lot__tag { border: 1px solid var(--line-2); color: var(--dim); }
+.lot__tag .ic { width: 14px; height: 14px; }
+
+.lot__price { display: flex; align-items: baseline; gap: 4px; line-height: 1; color: var(--text); }
+.lot__price b {
+  font: 900 italic clamp(4.2rem, 11vw, 6rem)/.85 var(--display);
+  letter-spacing: -.01em;
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  padding-right: .06em;
+}
+.lot__price small { font: 700 italic clamp(1.3rem, 3vw, 1.7rem)/1 var(--display); }
+.lot__price small:first-child { align-self: flex-start; margin-top: .3em; }
+.lot__soon { font: 800 italic clamp(1.9rem, 4vw, 2.6rem)/1 var(--display); text-transform: uppercase; color: var(--muted); }
+.lot--closed .lot__name { color: var(--muted); }
+
+@media (min-width: 720px) {
+  .lots { grid-template-columns: 1.35fr 1fr; }
+  .lot { padding: 30px 32px; }
+}
+@media (max-width: 479px) { .lot { padding: 22px 20px; } }
+
 /* =========================================================
    Mobile/tablet: banner vertical sangrando na largura toda,
    por trás do header, com o título entrando sobre o fade

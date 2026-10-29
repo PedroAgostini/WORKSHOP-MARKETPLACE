@@ -101,7 +101,7 @@ $time = date('d/m/Y H:i:s');
     </ul>
     <div class="actions">
       <a href="/lp1/?nocache=<?= time() ?>">Abrir LP 1</a>
-      <a href="/lp2/?nocache=<?= time() ?>">Abrir LP 2</a>
+      <a href="/quero-comecar/?nocache=<?= time() ?>">Abrir LP 2 (quero-comecar)</a>
       <a class="ghost" href="?token=<?= urlencode($cfg['token']) ?>&amp;full=1">Limpeza completa</a>
     </div>
   </main>

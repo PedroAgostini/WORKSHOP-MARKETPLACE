@@ -6,7 +6,7 @@
 
   <title>Workshop de Marketplace para Lojistas | 24/11 em Jaú-SP com Débora Santos</title>
   <meta name="description" content="Para lojistas e gestores de estoque: aprenda a usar dados, posicionamento, precificação, anúncios e gestão de estoque para vender mais nos marketplaces. 24/11, 08h, Espaço TS, Jaú-SP.">
-  <link rel="canonical" href="https://workshop.furacaodasvendas.com.br/lp1/">
+  <link rel="canonical" href="https://workshop.furacaodasvendas.com.br/">
   <meta name="robots" content="index, follow, max-image-preview:large">
 
   <!-- Open Graph / redes sociais (imagem 1200x630) -->
@@ -15,7 +15,7 @@
   <meta property="og:site_name" content="Workshop de Marketplace">
   <meta property="og:title" content="Workshop de Marketplace para Lojistas | 24/11 em Jaú-SP">
   <meta property="og:description" content="Dados, posicionamento, precificação, anúncios e estoque: uma operação de marketplace mais competitiva e rentável. Com Débora Santos, a Furacão das Vendas.">
-  <meta property="og:url" content="https://workshop.furacaodasvendas.com.br/lp1/">
+  <meta property="og:url" content="https://workshop.furacaodasvendas.com.br/">
   <meta property="og:image" content="https://workshop.furacaodasvendas.com.br/lp1/img/og.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -39,7 +39,7 @@
   <link rel="preload" as="image" href="/lp1/img/hero-workshop.webp" media="(min-width: 1024px)" fetchpriority="high">
 
   <!-- Versione CSS/JS (?v=AAAAMMDD) a cada deploy para furar o cache -->
-  <link rel="stylesheet" href="/lp1/css/style.css?v=20261029p">
+  <link rel="stylesheet" href="/lp1/css/style.css?v=20261029t">
   <script>document.documentElement.classList.add('js')</script>
 
   <script type="application/ld+json">
@@ -57,6 +57,7 @@
       "address": { "@type": "PostalAddress", "addressLocality": "Jaú", "addressRegion": "SP", "addressCountry": "BR" }
     },
     "image": "https://workshop.furacaodasvendas.com.br/lp1/img/og.jpg",
+    "offers": { "@type": "Offer", "name": "Lote 1", "price": "147.00", "priceCurrency": "BRL", "availability": "https://schema.org/InStock", "url": "https://workshop.furacaodasvendas.com.br/#lotes" },
     "performer": { "@type": "Person", "name": "Débora Santos" },
     "organizer": { "@type": "Organization", "name": "Furacão das Vendas", "url": "https://workshop.furacaodasvendas.com.br/" }
   }
@@ -186,13 +187,12 @@
         </h2>
 
         <div class="video reveal">
-          <!-- TODO: preencher data-yt com o ID do vídeo do YouTube das donas da Canelado -->
-          <button class="video__btn" type="button" data-yt="" aria-label="Assistir ao depoimento das donas da Canelado">
-            <img src="/lp1/img/arte-carrinho.webp" alt="" width="1080" height="610" loading="lazy">
+          <button class="video__btn video__btn--poster" type="button" data-video="/lp1/video/canelado-depoimento.mp4" aria-label="Assistir ao depoimento das donas da Canelado">
+            <img src="/lp1/img/video-canelado.webp" alt="" width="1280" height="720" loading="lazy">
             <span class="video__play" aria-hidden="true"><svg class="ic"><use href="#i-play"/></svg></span>
-            <span class="video__label">Donas da <strong>Canelado</strong></span>
-            <span class="video__soon">Vídeo em breve</span>
+            <span class="video__time">4:08</span>
           </button>
+          <p class="video__cap">Depoimento das donas da <strong>Canelado</strong></p>
         </div>
 
         <div class="center reveal">
@@ -297,56 +297,40 @@
 
         <div class="sim reveal" data-sim>
           <div class="sim__in">
-            <h3 class="sim__title"><span class="sim__step">1</span>Seus números hoje</h3>
+            <h3 class="sim__title"><span class="sim__step">1</span>Quanto sua loja vende por mês?</h3>
             <label class="field">
-              <span>Visitas na loja por mês</span>
-              <span class="field__box"><input type="number" name="visitas" value="10000" min="0" step="100" inputmode="numeric"><em>visitas</em></span>
+              <span class="sr-only">Faturamento por mês, em reais</span>
+              <span class="field__box field__box--pre field__box--big"><em>R$</em><input type="number" name="fat" value="30000" min="0" step="1000" inputmode="numeric"></span>
             </label>
-            <div class="field__row">
-              <label class="field">
-                <span>Taxa de conversão</span>
-                <span class="field__box"><input type="number" name="conversao" value="2" min="0" max="100" step="0.1" inputmode="decimal"><em>%</em></span>
-              </label>
-              <label class="field">
-                <span>Ticket médio</span>
-                <span class="field__box field__box--pre"><em>R$</em><input type="number" name="ticket" value="150" min="0" step="1" inputmode="decimal"></span>
-              </label>
+            <div class="sim__chips" role="group" aria-label="Valores prontos">
+              <button type="button" data-fat="10000">R$ 10 mil</button>
+              <button type="button" data-fat="30000" class="is-on">R$ 30 mil</button>
+              <button type="button" data-fat="50000">R$ 50 mil</button>
+              <button type="button" data-fat="100000">R$ 100 mil</button>
             </div>
 
-            <h3 class="sim__title"><span class="sim__step">2</span>Melhorias que você aprende no workshop</h3>
-            <label class="range">
-              <span>Mais tráfego <small>posicionamento</small> <output data-out="t">+15%</output></span>
-              <input type="range" name="t" min="0" max="50" value="15">
-            </label>
-            <label class="range">
-              <span>Mais conversão <small>anúncio e reputação</small> <output data-out="c">+15%</output></span>
-              <input type="range" name="c" min="0" max="50" value="15">
-            </label>
-            <label class="range">
-              <span>Ticket maior <small>precificação</small> <output data-out="k">+10%</output></span>
-              <input type="range" name="k" min="0" max="50" value="10">
-            </label>
+            <h3 class="sim__title"><span class="sim__step">2</span>O que você aprende no workshop</h3>
+            <ul class="sim__gains">
+              <li><span>Mais pessoas vendo seus anúncios</span><b>+15%</b></li>
+              <li><span>Mais visitas virando venda</span><b>+15%</b></li>
+              <li><span>Clientes gastando mais por compra</span><b>+10%</b></li>
+            </ul>
           </div>
 
           <div class="sim__out" aria-live="polite">
             <div class="sim__totals">
               <div class="total">
-                <span>Faturamento atual</span>
+                <span>Hoje</span>
                 <b data-res="atual">R$ 30.000</b>
                 <small>por mês</small>
               </div>
               <div class="total total--on">
-                <span>Com as melhorias</span>
+                <span>Depois do workshop</span>
                 <b data-res="novo">R$ 43.643</b>
                 <small><i data-res="pct">+45%</i> por mês</small>
               </div>
             </div>
-            <ul class="bars">
-              <li><span>Tráfego</span><b data-res="t">+R$ 4.500</b><i><em data-bar="t"></em></i></li>
-              <li><span>Conversão</span><b data-res="c">+R$ 5.175</b><i><em data-bar="c"></em></i></li>
-              <li><span>Ticket médio</span><b data-res="k">+R$ 3.968</b><i><em data-bar="k"></em></i></li>
-            </ul>
-            <p class="sim__year"><span>Em 12 meses, a mais no caixa</span><b data-res="ano">+R$ 163.710</b></p>
+            <p class="sim__year"><span>Em 1 ano, isso é a mais no caixa</span><b data-res="ano">+R$ 163.710</b></p>
             <p class="sim__note">Simulação ilustrativa, sem promessa de faturamento. Os resultados dependem do produto, do mercado e da execução.</p>
             <a class="btn btn--block" href="#inscricao">Quero aprender a fazer isso <svg class="ic"><use href="#i-arrow"/></svg></a>
           </div>
@@ -378,7 +362,21 @@
                 <span class="event__ic"><svg class="ic"><use href="#i-pin"/></svg></span>
                 <p><small>Local</small><b>Espaço TS</b><span>Jaú-SP · presencial</span></p>
               </li>
-            </ul>          </div>
+            </ul>
+          </div>
+
+          <ul class="lots" id="lotes" aria-label="Lotes de ingresso">
+            <li class="lot lot--open">
+              <p class="lot__head"><span class="lot__name">Lote 1</span><span class="lot__tag"><i></i>Aberto</span></p>
+              <p class="lot__price" aria-label="147 reais"><small>R$</small><b>147</b><small>,00</small></p>
+              <!-- TODO: link do checkout do Lote 1 -->
+              <a class="btn btn--block lot__cta" href="#lotes">Garantir minha vaga <svg class="ic"><use href="#i-arrow"/></svg></a>
+            </li>
+            <li class="lot lot--closed">
+              <p class="lot__head"><span class="lot__name">Lote 02</span><span class="lot__tag"><svg class="ic"><use href="#i-lock"/></svg>Fechado</span></p>
+              <p class="lot__soon">Por enquanto, fechado</p>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
@@ -402,6 +400,6 @@
 
   <a class="mcta" href="#inscricao" data-mcta>Fazer minha inscrição</a>
 
-  <script src="/lp1/js/main.js?v=20261029l" defer></script>
+  <script src="/lp1/js/main.js?v=20261029n" defer></script>
 </body>
 </html>
