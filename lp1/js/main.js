@@ -64,7 +64,31 @@ const sim = document.querySelector('[data-sim]');
 if (sim) {
   const brl = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
   const num = (name) => Math.max(0, parseFloat(sim.querySelector(`[name="${name}"]`).value.replace(',', '.')) || 0);
-  const set = (key, text) => { sim.querySelector(`[data-res="${key}"]`).textContent = text; };
+  const out = (key) => sim.querySelector(`[data-res="${key}"]`);
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Valores em R$ animam do número atual até o novo
+  const shown = {};
+  const tween = (key, to, plus) => {
+    const el = out(key);
+    const from = shown[key] ?? to;
+    shown[key] = to;
+    const fmt = (n) => (plus ? '+' : '') + brl.format(n);
+    if (reduced || from === to) { el.textContent = fmt(to); return; }
+    const t0 = performance.now();
+    const step = (now) => {
+      const t = Math.min((now - t0) / 450, 1);
+      const k = 1 - Math.pow(1 - t, 3);
+      el.textContent = fmt(from + (to - from) * k);
+      if (t < 1 && shown[key] === to) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
+  const fill = (input) => {
+    const p = ((input.value - input.min) / (input.max - input.min)) * 100;
+    input.style.setProperty('--p', `${p}%`);
+  };
 
   const calc = () => {
     const base = num('visitas') * (num('conversao') / 100) * num('ticket');
@@ -79,16 +103,58 @@ if (sim) {
     const gains = { t: afterT - base, c: afterC - afterT, k: total - afterC };
     const max = Math.max(gains.t, gains.c, gains.k, 1);
 
-    set('atual', brl.format(base));
-    set('novo', brl.format(total));
-    set('ano', `+${brl.format((total - base) * 12)}`);
+    tween('atual', base);
+    tween('novo', total);
+    tween('ano', (total - base) * 12, true);
+    out('pct').textContent = `+${base ? Math.round((total / base - 1) * 100) : 0}%`;
     ['t', 'c', 'k'].forEach((key) => {
-      set(key, `+${brl.format(gains[key])}`);
+      tween(key, gains[key], true);
       sim.querySelector(`[data-out="${key}"]`).textContent = `+${num(key)}%`;
       sim.querySelector(`[data-bar="${key}"]`).style.width = `${(gains[key] / max) * 100}%`;
     });
+    sim.querySelectorAll('input[type="range"]').forEach(fill);
   };
 
   sim.addEventListener('input', calc);
   calc();
+}
+
+// Contagem dos números (+36%, 438 milhões, +235 bi).
+// O +36% acompanha a barra: mesmo atraso (250ms), duração e curva do CSS.
+const counters = document.querySelectorAll("[data-count]");
+if (counters.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const easeOut = (t) => 1 - Math.pow(1 - t, 4);
+  const fmt = new Intl.NumberFormat("pt-BR");
+  counters.forEach((el) => {
+    const target = Number(el.dataset.count);
+    const { prefix = "", suffix = "" } = el.dataset;
+    const inBar = !!el.closest(".market__chart");
+    const render = (n) => { el.textContent = prefix + fmt.format(Math.round(n)) + suffix; };
+    render(0);
+    const run = () => {
+      const start = performance.now() + (inBar ? 250 : 0);
+      const duration = inBar ? 1400 : 1600;
+      const tick = (now) => {
+        const t = Math.min(Math.max((now - start) / duration, 0), 1);
+        render(target * easeOut(t));
+        if (t < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    new IntersectionObserver((entries, obs) => {
+      if (!entries[0].isIntersecting) return;
+      run();
+      obs.disconnect();
+    }, { rootMargin: "0px 0px -10% 0px" }).observe(el.closest(".market__chart, .figures div") || el);
+  });
+}
+
+// Rodapé: entrada em sequência quando aparece
+const footer = document.querySelector('.footer');
+if (footer) {
+  new IntersectionObserver(([entry], obs) => {
+    if (!entry.isIntersecting) return;
+    footer.classList.add('is-in');
+    obs.disconnect();
+  }, { rootMargin: '0px 0px -100px 0px' }).observe(footer);
 }
