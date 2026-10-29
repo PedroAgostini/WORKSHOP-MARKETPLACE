@@ -1500,6 +1500,8 @@ strong, b { font-weight: 600; color: #fff; }
 .lot__price small:first-child { align-self: flex-start; margin-top: .3em; }
 .lot__soon { font: 800 italic clamp(1.9rem, 4vw, 2.6rem)/1 var(--display); text-transform: uppercase; color: var(--muted); }
 .lot--closed .lot__name { color: var(--muted); }
+.lot__price--off b { font-size: clamp(2.8rem, 7vw, 3.8rem); background: none; color: var(--dim); }
+.lot__price--off small { color: var(--dim); }
 
 @media (min-width: 720px) {
   .lots { grid-template-columns: 1.35fr 1fr; }

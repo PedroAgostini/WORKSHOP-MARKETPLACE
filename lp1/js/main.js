@@ -42,6 +42,16 @@ if (mcta) {
   new IntersectionObserver(([e]) => { onForm = e.isIntersecting; update(); }).observe(form);
 }
 
+// Leva os UTMs do anúncio para o checkout da Eduzz
+const utms = [...new URLSearchParams(location.search)].filter(([k]) => k.startsWith('utm_'));
+if (utms.length) {
+  document.querySelectorAll('a[href*="chk.eduzz.com"]').forEach((a) => {
+    const url = new URL(a.href);
+    utms.forEach(([k, v]) => url.searchParams.set(k, v));
+    a.href = url;
+  });
+}
+
 // Vídeo: só baixa o arquivo no clique
 document.querySelectorAll('[data-video]').forEach((btn) => {
   btn.addEventListener('click', () => {

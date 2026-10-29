@@ -1,6 +1,6 @@
 // Destino de todos os botões "Garanta sua vaga!" (checkout, WhatsApp, Sympla…).
-// TODO: preencher com o link de inscrição.
-const CTA_URL = '';
+// Checkout do lote aberto (Lote 1, R$147). Lote 02 (R$247): https://chk.eduzz.com/8017JZ2N07
+const CTA_URL = 'https://chk.eduzz.com/7WXGXVZO0A';
 if (CTA_URL) {
   document.querySelectorAll('[data-cta]').forEach((a) => {
     a.href = CTA_URL;
@@ -8,6 +8,16 @@ if (CTA_URL) {
       a.target = '_blank';
       a.rel = 'noopener';
     }
+  });
+}
+
+// Leva os UTMs do anúncio para o checkout da Eduzz
+const utms = [...new URLSearchParams(location.search)].filter(([k]) => k.startsWith('utm_'));
+if (utms.length) {
+  document.querySelectorAll('a[href*="chk.eduzz.com"]').forEach((a) => {
+    const url = new URL(a.href);
+    utms.forEach(([k, v]) => url.searchParams.set(k, v));
+    a.href = url;
   });
 }
 

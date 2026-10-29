@@ -39,7 +39,7 @@
   <link rel="preload" as="image" href="/lp1/img/hero-azul-debora.webp" media="(min-width: 1024px)" fetchpriority="high">
 
   <!-- Versione CSS/JS (?v=AAAAMMDD) a cada deploy para furar o cache -->
-  <link rel="stylesheet" href="/lp1/css/style-azul.css?v=20261029c">
+  <link rel="stylesheet" href="/lp1/css/style-azul.css?v=20261029d">
   <script>document.documentElement.classList.add('js')</script>
 
   <script type="application/ld+json">
@@ -369,12 +369,14 @@
             <li class="lot lot--open">
               <p class="lot__head"><span class="lot__name">Lote 1</span><span class="lot__tag"><i></i>Aberto</span></p>
               <p class="lot__price" aria-label="147 reais"><small>R$</small><b>147</b><small>,00</small></p>
-              <!-- TODO: link do checkout do Lote 1 -->
-              <a class="btn btn--block lot__cta" href="#lotes">Garantir minha vaga <svg class="ic"><use href="#i-arrow"/></svg></a>
+              <a class="btn btn--block lot__cta" href="https://chk.eduzz.com/7WXGXVZO0A" target="_blank" rel="noopener">Garantir minha vaga <svg class="ic"><use href="#i-arrow"/></svg></a>
             </li>
             <li class="lot lot--closed">
               <p class="lot__head"><span class="lot__name">Lote 02</span><span class="lot__tag"><svg class="ic"><use href="#i-lock"/></svg>Fechado</span></p>
+              <p class="lot__price lot__price--off" aria-label="247 reais"><small>R$</small><b>247</b><small>,00</small></p>
               <p class="lot__soon">Por enquanto, fechado</p>
+              <!-- Para abrir o Lote 02: trocar "lot--closed" por "lot--open" e pôr o botão com o link https://chk.eduzz.com/8017JZ2N07 -->
+
             </li>
           </ul>
         </div>
@@ -400,6 +402,6 @@
 
   <a class="mcta" href="#inscricao" data-mcta>Fazer minha inscrição</a>
 
-  <script src="/lp1/js/main.js?v=20261029n" defer></script>
+  <script src="/lp1/js/main.js?v=20261029o" defer></script>
 </body>
 </html>
