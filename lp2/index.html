@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Workshop de Marketplace | 24/11 em Jaú-SP com Débora Santos</title>
-  <meta name="description" content="Aprenda a montar, posicionar, ranquear e vender nos marketplaces com quem vive disso todos os dias. Workshop presencial em 24/11 no Espaço TS, Jaú-SP.">
+  <meta name="description" content="No nosso Workshop de Marketplace você terá acesso a testes já validados e a uma estrutura completa para montar, posicionar, ranquear e vender com a sua loja online.">
   <link rel="canonical" href="https://workshop.furacaodasvendas.com.br/lp2/">
   <meta name="robots" content="index, follow, max-image-preview:large">
 
@@ -14,7 +14,7 @@
   <meta property="og:locale" content="pt_BR">
   <meta property="og:site_name" content="Workshop de Marketplace">
   <meta property="og:title" content="Workshop de Marketplace | 24/11 em Jaú-SP">
-  <meta property="og:description" content="Sua renda extra começa nos marketplaces. Aprenda o passo a passo com a Débora Santos, a Furacão das Vendas.">
+  <meta property="og:description" content="Sua hora de começar um novo negócio e fazer uma renda extra (ou mudar de vida) é agora; e só depende de você!">
   <meta property="og:url" content="https://workshop.furacaodasvendas.com.br/lp2/">
   <meta property="og:image" content="https://workshop.furacaodasvendas.com.br/lp2/img/og.jpg">
   <meta property="og:image:width" content="1200">
@@ -33,12 +33,12 @@
   <!-- Fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,200;0,300;0,600;0,800;1,300;1,800;1,900&family=Inter+Tight:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,200;0,300;0,600;0,800;1,300;1,800;1,900&family=Inter+Tight:wght@400;500;600;700;800&family=Caveat:wght@500;700&display=swap">
 
-  <link rel="preload" as="image" href="/lp2/img/debora-palco.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="/lp2/img/debora-hero.webp" fetchpriority="high">
 
   <!-- Versione CSS/JS (?v=AAAAMMDD) a cada deploy para furar o cache -->
-  <link rel="stylesheet" href="/lp2/css/style.css?v=20261028">
+  <link rel="stylesheet" href="/lp2/css/style.css?v=20261029y">
   <script>document.documentElement.classList.add('js')</script>
 
   <script type="application/ld+json">
@@ -47,7 +47,8 @@
     "@type": "Event",
     "name": "Workshop de Marketplace",
     "description": "Workshop presencial para criar, posicionar, ranquear e vender nos marketplaces.",
-    "startDate": "2026-11-24",
+    "startDate": "2026-11-24T08:00:00-03:00",
+    "endDate": "2026-11-24T16:00:00-03:00",
     "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
     "eventStatus": "https://schema.org/EventScheduled",
     "location": {
@@ -63,50 +64,69 @@
 </head>
 <body>
 
-  <!-- Barra superior -->
-  <div class="topbar">
-    <div class="topbar__in">
-      <p><strong>24/11</strong> <span class="topbar__loc"><span class="sep">|</span> Espaço TS, Jaú-SP</span> <span class="topbar__count" data-countdown hidden></span></p>
-      <a class="topbar__cta" href="#inscricao">Garantir vaga</a>
+  <!-- Ícones (mesmo sprite da lp1) -->
+  <svg class="sprite" width="0" height="0" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M3.5 10h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0113 0c0 5-6.5 11-6.5 11z" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.75"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M8.5 10.5V8a3.5 3.5 0 017 0v2.5" fill="none" stroke="currentColor" stroke-width="1.75"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </svg>
+
+  <!-- Barra superior em pílula (igual à lp1) -->
+  <header class="nav">
+    <div class="nav__pill">
+      <a class="nav__logo" href="#" aria-label="Workshop de Marketplace, voltar ao topo">
+        <img src="/lp2/img/logo-branco.svg" alt="Workshop de Marketplace" width="781" height="303">
+      </a>
+      <ul class="nav__meta">
+        <li><svg class="ic"><use href="#i-cal"/></svg><span><b>24/11</b><span class="nav__time"> · 8h às 16h</span></span></li>
+        <li class="nav__loc"><svg class="ic"><use href="#i-pin"/></svg><span>Espaço TS, Jaú-SP</span></li>
+      </ul>
+      <a class="nav__cta" href="#" data-cta>Garanta sua vaga! <svg class="ic"><use href="#i-arrow"/></svg></a>
     </div>
-  </div>
+  </header>
 
   <main>
 
     <!-- HERO -->
     <section class="hero">
-      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="hero__bg" aria-hidden="true"></div>
+      <!-- Fora do .hero__bg para ficar na frente das logos dos marketplaces -->
+      <img class="hero__photo" src="/lp2/img/debora-hero.webp" alt="" width="883" height="928" fetchpriority="high">
+
       <div class="wrap hero__grid">
         <div class="hero__copy">
           <img class="logo" src="/lp2/img/logo-branco.svg" alt="Workshop de Marketplace" width="781" height="303">
 
-          <p class="eyebrow"><span class="dot"></span> Workshop presencial <span class="sep">/</span> 24 de novembro</p>
-
-          <h1 class="display">
+          <h1 class="display hero__title">
             <span class="thin">Sua hora de começar</span>
             <span class="bold">um novo negócio</span>
-            <span class="thin">é <em class="hl">agora</em></span>
+            <span class="tag"><em>é agora</em></span>
           </h1>
 
-          <p class="hero__sub">Faça uma <strong>renda extra</strong> (ou mude de vida). <strong>Só depende de você!</strong></p>
+          <p class="hero__text">No nosso Workshop de Marketplace você terá acesso a <strong>testes já validados</strong> e a uma <strong>estrutura completa</strong> para montar, posicionar, ranquear e vender com a sua loja online com quem vive e faz isso na prática todos os dias.</p>
 
-          <p class="hero__text">No nosso Workshop de Marketplace você terá acesso a <strong>testes já validados</strong> e a uma <strong>estrutura completa</strong> para montar, posicionar, ranquear e vender com a sua loja online, com quem vive e faz isso na prática todos os dias.</p>
+          <div class="hero__ctas">
+            <a class="btn btn--hot" href="#por-que">
+              <span class="btn__label">Não clique aqui ainda, <small>veja mais abaixo…</small></span>
+              <span class="btn__arrow" aria-hidden="true">↓</span>
+            </a>
+          </div>
 
-          <a class="btn btn--ghost" href="#por-que">
-            <span>Não clique aqui ainda</span>
-            <small>veja mais abaixo <i aria-hidden="true">↓</i></small>
-          </a>
+          <ul class="hero__info" aria-label="Informações do evento">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>24/11</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Espaço TS, Jaú-SP</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>8h às 16h</li>
+          </ul>
         </div>
 
         <div class="hero__media">
-          <figure class="hero__photo">
-            <img src="/lp2/img/debora-palco.webp" alt="Débora Santos palestrando no palco" width="880" height="1100" fetchpriority="high">
-          </figure>
-          <ul class="coins" aria-label="Marketplaces abordados">
-            <li class="coin coin--ml">Mercado Livre</li>
-            <li class="coin coin--sh">Shopee</li>
-            <li class="coin coin--am">Amazon</li>
-            <li class="coin coin--se">Shein</li>
+          <ul class="chips-glass" aria-label="Marketplaces abordados">
+            <li class="glass glass--1"><img class="ml-simbolo" src="/lp2/img/logo-mercadolivre-simbolo.svg" alt="" width="97" height="64"><img src="/lp2/img/logo-mercadolivre.svg" alt="Mercado Livre" width="345" height="136"></li>
+            <li class="glass glass--2"><img src="/lp2/img/logo-shopee.svg" alt="Shopee" width="1000" height="320"></li>
+            <li class="glass glass--3"><img src="/lp2/img/logo-amazon.svg" alt="Amazon" width="603" height="182"></li>
+            <li class="glass glass--4"><img src="/lp2/img/logo-shein.svg" alt="Shein" width="530" height="110"></li>
           </ul>
           <div class="hero__badge">
             <strong>Débora Santos</strong>
@@ -124,210 +144,175 @@
       </div>
     </div>
 
-    <!-- PROBLEMA -->
-    <section class="sec" id="por-que">
+    <!--
+      Organização das seções (padrão do eusouts-web):
+      selo em pílula → título (parte laranja + parte branca) → subtítulo estreito → conteúdo.
+      Mesmo respiro vertical em todas, fundo único, container de 1280px.
+      Títulos e subtítulos são texto da copy; os selos são rótulos decorativos.
+    -->
+
+    <!-- 1. PROBLEMA -->
+    <section class="sec tex-ember" id="por-que">
       <div class="wrap">
         <header class="sec__head reveal">
-          <p class="kicker">A verdade sobre vender online</p>
-          <h2 class="display display--md">
-            <span class="thin">Vender online</span>
-            <span class="bold">não é sorte</span>
-          </h2>
+          <span class="eyebrow">Marketplaces</span>
+          <h2 class="sec__title">Alguns pensam que vai vender sozinho, outros que demora muito <span class="hl">e pouquíssimos conhecem e aplicam boas estratégias.</span></h2>
         </header>
 
-        <ul class="myths reveal">
-          <li class="myth"><span class="myth__n">01</span><p>Alguns pensam que <strong>vai vender sozinho</strong>.</p></li>
-          <li class="myth"><span class="myth__n">02</span><p>Outros acham que <strong>demora muito</strong>.</p></li>
-          <li class="myth myth--on"><span class="myth__n">03</span><p><strong>Pouquíssimos</strong> conhecem e aplicam boas estratégias.</p></li>
-        </ul>
-
-        <div class="split reveal">
-          <div class="split__text">
-            <h3 class="h3">Sabe por quê?</h3>
-            <p>Porque não é só uma loja. Não são produtos jogados e a tentativa de a plataforma posicionar a sua marca ou algum dos seus produtos.</p>
-          </div>
-          <blockquote class="callout">
-            <span class="callout__tag">Anota aí</span>
-            <p>Um bom produto <strong>não vende</strong> se não estiver onde os seus compradores estão vendo.</p>
+        <div class="duo reveal">
+          <article class="panel">
+            <h3 class="panel__title">Sabe por quê?</h3>
+            <p>Porque não é só uma loja, não são produtos jogados e a tentativa da plataforma posicionar sua marca ou algum dos seus produtos.</p>
+          </article>
+          <!-- Papel de caderno anotado à mão -->
+          <blockquote class="note">
+            <span class="note__tag">Anota aí:</span>
+            <p>Um bom produto <mark>não vende</mark> se não estiver onde os seus compradores estão o vendo.</p>
           </blockquote>
         </div>
 
-        <p class="lead reveal">A boa notícia: se você está começando, dentro do nosso Workshop de Marketplaces você vai aprender a fazer <strong>tudo do jeito certo</strong> para conseguir o resultado que busca: começar, gerar renda e escalar o seu novo negócio.</p>
+        <p class="sec__sub sec__sub--after reveal">A boa notícia é que se você está começando, dentro do nosso Workshop de Marketplaces você aprenderá a fazer <strong>tudo do jeito certo</strong> para conseguir o resultado que você busca para começar, gerar renda e escalar seu novo negócio.</p>
 
         <p class="look reveal">Olha isso… <span aria-hidden="true">👇</span></p>
       </div>
     </section>
 
-    <!-- CASE -->
-    <section class="sec sec--case">
+    <!-- 2. CASE CANELADO -->
+    <section class="sec" id="canelado">
       <div class="wrap">
-        <div class="video reveal">
-          <!-- TODO: preencher data-yt com o ID do vídeo do YouTube das donas da Canelado -->
-          <button class="video__btn" type="button" data-yt="" aria-label="Assistir ao depoimento das donas da Canelado">
-            <img src="/lp2/img/arte-carrinho.webp" alt="" width="1080" height="610" loading="lazy">
-            <span class="video__play" aria-hidden="true"></span>
-            <span class="video__label">Depoimento <strong>Canelado</strong></span>
-          </button>
+        <!-- Metade conteúdo, metade vídeo -->
+        <div class="split2 split2--video">
+          <header class="sec__head sec__head--left reveal">
+            <span class="eyebrow">Canelado</span>
+            <h2 class="sec__title">Elas já tinham uma marca e a loja física bombava, <span class="hl">mas no digital não era a mesma coisa.</span></h2>
+            <p class="sec__sub">Assim como você, o e-commerce e as lojas nos marketplaces era como se não existissem, mas depois de mudanças estratégicas e o direcionamento certo de preços, descrições, fotos e posicionamento, <strong class="case__hl">TUDO MUDOU.</strong></p>
+            <p class="sec__sub">Agora é como se outros vendedores estivessem trabalhando a mais na loja sem custar 1. Ou seja, você só não consegue uma renda extra ou se desprender de um trabalho fixo hoje, se você quiser.</p>
+          </header>
+
+          <div class="video reveal">
+            <!-- Vídeo hospedado no próprio site; só carrega no clique -->
+            <button class="video__btn video__btn--poster" type="button" data-video="/lp2/video/depoimento-canelado.mp4" aria-label="Assistir ao vídeo das donas da Canelado">
+              <img src="/lp2/img/depoimento-capa.webp" alt="" width="1280" height="720" loading="lazy">
+              <span class="video__play" aria-hidden="true"></span>
+            </button>
+          </div>
         </div>
 
-        <div class="case reveal">
-          <p class="kicker">Caso real</p>
-          <h2 class="display display--sm">
-            <span class="thin">No digital,</span>
-            <span class="bold">tudo mudou</span>
-          </h2>
-          <p>Elas já tinham uma marca e a loja física bombava, mas no digital não era a mesma coisa. Assim como para você, o e-commerce e as lojas nos marketplaces eram como se não existissem.</p>
-          <p>Depois de mudanças estratégicas e do direcionamento certo de <strong>preços, descrições, fotos e posicionamento</strong>, TUDO MUDOU.</p>
-          <p>Agora é como se outros vendedores estivessem trabalhando a mais na loja, sem custar 1 real. Ou seja: você só não consegue uma renda extra ou se desprender de um trabalho fixo hoje se não quiser.</p>
-        </div>
-      </div>
-
-      <div class="wrap">
-        <ol class="steps reveal">
-          <li><span>O caminho</span> <b>está pronto</b></li>
-          <li><span>O resultado</span> <b>chega</b></li>
-          <li><span>E o investimento</span> <b>é pequeno</b></li>
+        <ol class="grid3 reveal">
+          <li class="step"><span class="step__n" aria-hidden="true">1</span><div class="step__body"><h3>O caminho <em>está pronto</em></h3></div></li>
+          <li class="step"><span class="step__n" aria-hidden="true">2</span><div class="step__body"><h3>O resultado <em>chega</em></h3></div></li>
+          <li class="step"><span class="step__n" aria-hidden="true">3</span><div class="step__body"><h3>E o investimento <em>é pequeno</em></h3><p>perto do quanto você consegue de retorno.</p></div></li>
         </ol>
-        <p class="center muted reveal">…perto do quanto você consegue de retorno. Basta tomar uma decisão e participar do nosso Workshop para aprender a fazer do jeito certo.</p>
-        <div class="center reveal">
-          <a class="btn" href="#inscricao">Clique aqui e faça sua inscrição</a>
+
+        <div class="sec__cta reveal">
+          <p>Basta tomar uma decisão e participar do nosso Workshop para aprender como fazer do jeito certo.</p>
+          <a class="btn" href="#" data-cta>Clique aqui e faça sua inscrição</a>
         </div>
       </div>
     </section>
 
-    <!-- CONTEÚDO -->
-    <section class="sec">
+    <!-- 3. CONTEÚDO -->
+    <section class="sec tex-dots" id="conteudo">
       <div class="wrap">
         <header class="sec__head reveal">
-          <p class="kicker">E não acaba aqui…</p>
-          <h2 class="display display--md">
-            <span class="thin">O que você vai</span>
-            <span class="bold">aprender</span>
-          </h2>
-          <p class="muted">Participação de pessoas que vivem de vendas em marketplaces e um conteúdo que vai da criação da loja até a conversão, mesmo com a loja sendo nova.</p>
+          <span class="eyebrow">Conteúdo</span>
+          <h2 class="sec__title"><span class="hl">E não acaba aqui…</span></h2>
+          <p class="sec__sub">dentro do workshop teremos participação de pessoas que vivem de vendas em marketplaces e um conteúdo que vai desde a criação de loja, até precificação e artifícios para ranquear e aumentar as conversões dentro da sua loja, mesmo ela sendo nova.</p>
         </header>
 
-        <ul class="cards reveal">
-          <li class="card"><span class="card__n">01</span><h3>Criação da loja</h3><p>Do zero, nos maiores marketplaces do Brasil, já com a estrutura certa.</p></li>
-          <li class="card"><span class="card__n">02</span><h3>Precificação</h3><p>Preço que vende e ainda deixa margem depois de taxas e frete.</p></li>
-          <li class="card"><span class="card__n">03</span><h3>Ranqueamento</h3><p>Os artifícios para o seu produto aparecer para quem está comprando.</p></li>
-          <li class="card"><span class="card__n">04</span><h3>Conversão</h3><p>Fotos, descrições e posicionamento que transformam visita em venda.</p></li>
-          <li class="card"><span class="card__n">05</span><h3>Quem vive disso</h3><p>Participação de pessoas que vendem em marketplaces todos os dias.</p></li>
-          <li class="card"><span class="card__n">06</span><h3>Datas que vendem</h3><p>Como explorar o mercado e alavancar as vendas nas datas fortes do varejo.</p></li>
+        <!-- Rótulos curtos tirados do parágrafo acima (decorativos) -->
+        <ul class="grid4 grid4--steps reveal">
+          <li class="step"><span class="step__n" aria-hidden="true">1</span><div class="step__body"><h3>Criação <em>de loja</em></h3></div></li>
+          <li class="step"><span class="step__n" aria-hidden="true">2</span><div class="step__body"><h3>Até <em>precificação</em></h3></div></li>
+          <li class="step"><span class="step__n" aria-hidden="true">3</span><div class="step__body"><h3>Artifícios para <em>ranquear</em></h3></div></li>
+          <li class="step"><span class="step__n" aria-hidden="true">4</span><div class="step__body"><h3>Aumentar as <em>conversões</em></h3></div></li>
         </ul>
 
         <div class="season reveal">
-          <img class="season__img" src="/lp2/img/arte-natal.webp" alt="" width="1080" height="540" loading="lazy">
+          <img class="season__img" src="/lp2/img/debora-plateia.webp" alt="Débora Santos sendo aplaudida pela turma" width="1200" height="952" loading="lazy">
           <div class="season__text">
-            <h3 class="display display--sm">
-              <span class="thin">Venda mais</span>
-              <span class="bold">nas datas fortes</span>
-            </h3>
-            <p>Alternativas para explorar o mercado e alavancar as vendas em datas como:</p>
-            <ul class="chips">
-              <li>Black Friday</li><li>Natal</li><li>Dia dos Namorados</li><li>e muito mais</li>
+            <p class="season__lead">Fora isso, alternativas para conseguir explorar o mercado e</p>
+            <h3 class="season__title">Alavancar as vendas <span>em datas como</span></h3>
+            <ul class="dates">
+              <li class="dates--on"><svg class="ic" aria-hidden="true"><use href="#i-cal"/></svg>Black Friday</li>
+              <li><svg class="ic" aria-hidden="true"><use href="#i-cal"/></svg>Natal</li>
+              <li><svg class="ic" aria-hidden="true"><use href="#i-cal"/></svg>Dia dos Namorados</li>
+              <li class="dates--more">e muito mais</li>
             </ul>
-            <p class="muted">Tem algumas datas logo aí e você ainda consegue aproveitar.</p>
-            <a class="btn" href="#inscricao">Eu quero!</a>
+            <p class="season__alert"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg>(tem algumas datas logo aí e você ainda consegue aproveitar elas).</p>
+            <a class="btn btn--grad" href="#" data-cta>Eu quero! <svg class="ic"><use href="#i-arrow"/></svg></a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- RENDA EXTRA -->
-    <section class="sec sec--extra">
-      <div class="wrap extra">
-        <figure class="extra__img reveal">
+    <!-- 4. RENDA EXTRA (cabeçalho à esquerda + visual à direita) -->
+    <section class="sec tex-ember" id="renda-extra">
+      <div class="wrap split2">
+        <header class="sec__head sec__head--left reveal">
+          <span class="eyebrow">Renda extra</span>
+          <h2 class="sec__title">Você pensa em fazer renda extra sempre ou sabe que pode fazer mais do que faz hoje. <span class="hl">Por isso, agora só depende de um passo seu.</span></h2>
+          <p class="sec__sub">Clique agora no botão abaixo e garanta a sua vaga no nosso workshop do dia <strong>24 de novembro</strong>.</p>
+          <a class="btn" href="#" data-cta>Garanta sua vaga!</a>
+        </header>
+        <figure class="split2__media reveal">
           <img src="/lp2/img/arte-notebook.webp" alt="" width="800" height="695" loading="lazy">
         </figure>
-        <div class="extra__text reveal">
-          <h2 class="display display--md">
-            <span class="thin">Sua</span>
-            <span class="bold">renda extra</span>
-            <span class="thin small">a um passo de você</span>
-          </h2>
-          <p>Você pensa em fazer renda extra sempre, ou sabe que pode fazer mais do que faz hoje. Por isso, agora <strong>só depende de um passo seu</strong>.</p>
-          <p>Clique no botão abaixo e garanta a sua vaga no nosso workshop do dia <strong>24 de novembro</strong>.</p>
-          <a class="btn" href="#inscricao">Garanta sua vaga!</a>
-        </div>
       </div>
     </section>
 
-    <!-- PALESTRANTE -->
+    <!-- 5. PALESTRANTE (desenho da lp1) -->
     <section class="sec sec--speaker" id="debora">
       <div class="wrap speaker">
         <figure class="speaker__photo reveal">
-          <img src="/lp2/img/debora-bio.webp" alt="Débora Santos durante palestra" width="900" height="900" loading="lazy">
-          <figcaption>Furacão das Vendas</figcaption>
+          <img src="/lp2/img/debora-palestra.webp" alt="Débora Santos durante palestra" width="900" height="900" loading="lazy">
+          <figcaption><b>+26</b> anos em estratégia de vendas</figcaption>
         </figure>
 
         <div class="speaker__text reveal">
-          <p class="kicker">Quem vai te ensinar</p>
-          <h2 class="display display--md">
-            <span class="thin">Débora</span>
-            <span class="bold">Santos</span>
+          <h2 class="display speaker__name">
+            <span class="thin">Débora Santos</span>
+            <span class="bold">Furacão das Vendas</span>
           </h2>
 
-          <ul class="stats">
-            <li><b>+26</b><span>anos em estratégia de vendas</span></li>
-            <li><b>+2.800</b><span>mentorias realizadas</span></li>
+          <p>Empresária, escritora, treinadora e especialista em estratégia de vendas há mais de 26 anos. Conhecida como <strong>FURACÃO DAS VENDAS</strong>, já realizou <strong>mais de 2.800 mentorias</strong>, foi estrategista da empresa de <strong>Geraldo Rufino</strong> e treinadora do time de <strong>Carlos Wizard</strong>, além de ter sido capa da revista internacional <strong>Economia S/A</strong>.</p>
+          <p>Co-founder da MiraH Assessoria, Sócia da TS Brasil e CEO do Grupo TS, ajuda diversas empresas e clínicas a ATRAIR mais clientes, AUMENTAR o faturamento e fazer gestão. Formada pela FGV – MBA em Gestão Comercial, Gestão Mercadológica, Personal Professional Coaching, já esteve presente em feiras internacionais como SGIA e ISA, em Las Vegas e Orlando.</p>
+
+          <ul class="creds" aria-label="Destaques da carreira">
+            <li>+2.800 mentorias</li>
+            <li>Capa da Economia S/A</li>
+            <li>MBA FGV</li>
+            <li>SGIA e ISA · EUA</li>
           </ul>
 
-          <p>Empresária, escritora, treinadora e especialista em estratégia de vendas há mais de 26 anos. Conhecida como <strong>Furacão das Vendas</strong>, foi estrategista da empresa de <strong>Geraldo Rufino</strong> e treinadora do time de <strong>Carlos Wizard</strong>, além de ter sido capa da revista internacional <strong>Economia S/A</strong>.</p>
-          <p>Co-founder da MiraH Assessoria, sócia da TS Brasil e CEO do Grupo TS, ajuda empresas e clínicas a atrair mais clientes, aumentar o faturamento e fazer gestão. Formada pela FGV (MBA em Gestão Comercial), em Gestão Mercadológica e Personal Professional Coaching, já esteve em feiras internacionais como SGIA e ISA, em Las Vegas e Orlando.</p>
+          <a class="btn btn--grad speaker__cta" href="#" data-cta>Garanta sua vaga! <svg class="ic"><use href="#i-arrow"/></svg></a>
         </div>
       </div>
-
-      <ul class="gallery" aria-label="Débora Santos em eventos">
-        <li><img src="/lp2/img/galeria-telao.webp" alt="Débora no palco em frente ao telão" width="1200" height="800" loading="lazy"></li>
-        <li><img src="/lp2/img/galeria-plateia.webp" alt="Plateia aplaudindo a Débora" width="1200" height="800" loading="lazy"></li>
-        <li><img src="/lp2/img/galeria-publico.webp" alt="Débora palestrando para o público" width="800" height="800" loading="lazy"></li>
-        <li><img src="/lp2/img/galeria-sala.webp" alt="Sala cheia durante treinamento" width="1200" height="959" loading="lazy"></li>
-        <li><img src="/lp2/img/galeria-azul.webp" alt="Débora palestrando" width="800" height="800" loading="lazy"></li>
-      </ul>
     </section>
 
-    <!-- SIMULADOR -->
-    <section class="sec" id="simulador">
+    <!-- 6. SIMULADOR (desenho da lp1) -->
+    <section class="sec tex-grid" id="simulador">
       <div class="wrap">
         <header class="sec__head reveal">
-          <p class="kicker">Simulador</p>
-          <h2 class="display display--md">
-            <span class="thin">Pequenas melhorias.</span>
-            <span class="bold">Grandes diferenças</span>
-          </h2>
-          <p class="muted">Simule cenários e veja os níveis que a sua marca pode alcançar com as vendas.</p>
+          <span class="eyebrow">Simulador</span>
+          <h2 class="sec__title">Pequenas melhorias. <span class="hl">Grandes diferenças nos números.</span></h2>
+          <p class="sec__sub">Simule cenários para conhecer os níveis que sua marca pode alcançar com as vendas!</p>
         </header>
 
         <div class="sim reveal" data-sim>
+          <!-- Versão simplificada: um campo só; as melhorias são fixas (data-gain) -->
           <div class="sim__in">
-            <h3 class="sim__title">Seus números hoje</h3>
             <label class="field">
-              <span>Visitas na loja por mês</span>
-              <input type="number" name="visitas" value="10000" min="0" step="100" inputmode="numeric">
-            </label>
-            <label class="field">
-              <span>Taxa de conversão (%)</span>
-              <input type="number" name="conversao" value="2" min="0" max="100" step="0.1" inputmode="decimal">
-            </label>
-            <label class="field">
-              <span>Ticket médio (R$)</span>
-              <input type="number" name="ticket" value="150" min="0" step="1" inputmode="decimal">
+              <span class="sim__title">Quanto sua loja fatura por mês hoje?</span>
+              <span class="field__box field__box--pre field__box--big"><em>R$</em><input type="number" name="fat" value="30000" min="0" step="1000" inputmode="numeric"></span>
             </label>
 
-            <h3 class="sim__title">Melhorias que você aprende no workshop</h3>
-            <label class="range">
-              <span>Mais tráfego (ranqueamento) <output data-out="t">+15%</output></span>
-              <input type="range" name="t" min="0" max="50" value="15">
-            </label>
-            <label class="range">
-              <span>Mais conversão (fotos e descrição) <output data-out="c">+15%</output></span>
-              <input type="range" name="c" min="0" max="50" value="15">
-            </label>
-            <label class="range">
-              <span>Ticket maior (precificação) <output data-out="k">+10%</output></span>
-              <input type="range" name="k" min="0" max="50" value="10">
-            </label>
+            <p class="sim__label">Melhorias que você aprende no workshop</p>
+            <ul class="levers">
+              <li data-gain="15"><b>+15%</b><span>tráfego</span></li>
+              <li data-gain="15"><b>+15%</b><span>conversão</span></li>
+              <li data-gain="10"><b>+10%</b><span>ticket médio</span></li>
+            </ul>
           </div>
 
           <div class="sim__out" aria-live="polite">
@@ -335,83 +320,93 @@
               <div class="total">
                 <span>Faturamento atual</span>
                 <b data-res="atual">R$ 30.000</b>
+                <small>por mês</small>
               </div>
               <div class="total total--on">
                 <span>Com as melhorias</span>
                 <b data-res="novo">R$ 43.643</b>
+                <small><i data-res="pct">+45%</i> por mês</small>
               </div>
             </div>
-            <ul class="bars">
-              <li><span>Tráfego</span><i><em data-bar="t"></em></i><b data-res="t">+R$ 4.500</b></li>
-              <li><span>Conversão</span><i><em data-bar="c"></em></i><b data-res="c">+R$ 5.175</b></li>
-              <li><span>Ticket médio</span><i><em data-bar="k"></em></i><b data-res="k">+R$ 3.968</b></li>
-            </ul>
-            <p class="sim__year">Em 12 meses, são <b data-res="ano">+R$ 163.710</b> a mais.</p>
-            <p class="sim__note">Simulação ilustrativa. Os resultados dependem do produto, do mercado e da execução.</p>
-            <a class="btn btn--block" href="#inscricao">Quero aprender a fazer isso</a>
+            <p class="sim__year"><span>Em 12 meses, a mais no caixa</span><b data-res="ano">+R$ 163.710</b></p>
+            <p class="sim__note">Simulação ilustrativa, sem promessa de faturamento. Os resultados dependem do produto, do mercado e da execução.</p>
+            <a class="btn btn--grad btn--block" href="#" data-cta>Quero aprender a fazer isso <svg class="ic"><use href="#i-arrow"/></svg></a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- INSCRIÇÃO -->
-    <section class="sec sec--form" id="inscricao">
-      <div class="hero__glow hero__glow--b" aria-hidden="true"></div>
-      <div class="wrap signup">
-        <div class="signup__info reveal">
-          <p class="kicker">Informações do evento</p>
-          <h2 class="display display--md">
-            <span class="thin">Garanta</span>
-            <span class="bold">sua vaga</span>
-          </h2>
-          <dl class="info">
-            <div><dt>Data</dt><dd>24/11 <small>terça-feira</small></dd></div>
-            <div><dt>Local</dt><dd>Espaço TS <small>Jaú-SP</small></dd></div>
-            <!-- TODO: confirmar horário -->
-            <div><dt>Horário</dt><dd>A confirmar</dd></div>
-          </dl>
+    <!-- 7. PREÇOS (lotes) -->
+    <section class="sec tex-ember" id="precos">
+      <div class="wrap">
+        <header class="sec__head reveal">
+          <span class="eyebrow">Ingressos</span>
+          <h2 class="sec__title">E o investimento <span class="hl">é pequeno</span></h2>
+        </header>
+
+        <div class="lots reveal">
+          <article class="lot lot--on">
+            <span class="lot__tag">Lote 1</span>
+            <p class="lot__old"><s>R$ 400,00</s></p>
+            <p class="lot__price"><small>R$</small>147<sup>,00</sup></p>
+            <a class="btn btn--grad btn--block" href="#" data-cta>Garanta sua vaga! <svg class="ic"><use href="#i-arrow"/></svg></a>
+          </article>
+
+          <article class="lot lot--off" aria-disabled="true">
+            <span class="lot__tag">Lote 02</span>
+            <p class="lot__price lot__price--off"><small>R$</small>247<sup>,00</sup></p>
+            <p class="lot__closed"><svg class="ic" aria-hidden="true"><use href="#i-lock"/></svg>Por enquanto, fechado</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. INFORMAÇÕES DO EVENTO (desenho da lp1) -->
+    <section class="sec sec--event" id="evento">
+      <div class="wrap event-wrap">
+        <h2 class="display event__title reveal">
+          <span class="thin">Informações</span>
+          <span class="bold">do evento</span>
+        </h2>
+
+        <div class="event reveal">
+          <ul class="event__list">
+            <li>
+              <span class="event__ic"><svg class="ic"><use href="#i-cal"/></svg></span>
+              <p><small>Data</small><b>24 de novembro</b><span>terça-feira</span></p>
+            </li>
+            <li>
+              <span class="event__ic"><svg class="ic"><use href="#i-clock"/></svg></span>
+              <p><small>Horário</small><b>8h às 16h</b><span>horário de Brasília</span></p>
+            </li>
+            <li>
+              <span class="event__ic"><svg class="ic"><use href="#i-pin"/></svg></span>
+              <p><small>Local</small><b>Espaço TS</b><span>Jaú-SP · presencial</span></p>
+            </li>
+          </ul>
         </div>
 
-        <form class="form reveal" action="/api/lead.php" method="post" data-antispam novalidate>
-          <input type="hidden" name="_lp" value="lp2">
-          <input type="hidden" name="_token" value="">
-
-          <!-- Honeypot: invisível para pessoas, bots preenchem -->
-          <div class="hp" aria-hidden="true">
-            <label for="lp2-website">Não preencha</label>
-            <input type="text" id="lp2-website" name="website" tabindex="-1" autocomplete="off">
-          </div>
-
-          <p class="form__title">Preencha e garanta sua vaga</p>
-
-          <label for="lp2-nome">Nome</label>
-          <input type="text" id="lp2-nome" name="nome" autocomplete="name" placeholder="Seu nome" required minlength="2" maxlength="80">
-
-          <label for="lp2-email">E-mail</label>
-          <input type="email" id="lp2-email" name="email" autocomplete="email" placeholder="voce@email.com" required>
-
-          <label for="lp2-telefone">WhatsApp</label>
-          <input type="tel" id="lp2-telefone" name="telefone" autocomplete="tel-national" inputmode="tel" placeholder="(11) 91234-5678" required>
-
-          <button class="btn btn--block" type="submit">Quero minha vaga</button>
-          <p class="form-status" data-form-status role="status" aria-live="polite"></p>
-          <p class="form__lock">Seus dados estão seguros. Nada de spam.</p>
-        </form>
+        <a class="btn btn--grad event__cta reveal" href="#" data-cta>Garanta sua vaga! <svg class="ic"><use href="#i-arrow"/></svg></a>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="wrap footer__in">
-      <img src="/lp2/img/logo-branco.svg" alt="Workshop de Marketplace" width="781" height="303" loading="lazy">
-      <p>Espaço TS <span class="sep">|</span> Jaú-SP</p>
-      <p class="muted">© 2026 Furacão das Vendas. Todos os direitos reservados.</p>
+      <a class="footer__logo" href="#" aria-label="Workshop de Marketplace, voltar ao topo">
+        <img src="/lp2/img/logo-branco.svg" alt="Workshop de Marketplace" width="781" height="303" loading="lazy">
+      </a>
+
+      <ul class="footer__meta">
+        <li><svg class="ic"><use href="#i-cal"/></svg>24/11 · 8h às 16h</li>
+        <li><svg class="ic"><use href="#i-pin"/></svg>Espaço TS, Jaú-SP</li>
+      </ul>
     </div>
+
+    <p class="footer__copy">© 2026 Furacão das Vendas. Todos os direitos reservados.</p>
   </footer>
 
-  <a class="mcta" href="#inscricao" data-mcta>Garantir minha vaga</a>
-
-  <script src="/assets/js/antispam.js?v=20261028" defer></script>
-  <script src="/lp2/js/main.js?v=20261028" defer></script>
+  <a class="mcta" href="#" data-cta data-mcta>Garanta sua vaga!</a>
+  <script src="/lp2/js/main.js?v=20261029y" defer></script>
 </body>
 </html>
